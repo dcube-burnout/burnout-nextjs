@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import SessionRow from './SessionRow';
 import SectionHeader from '../SectionHeader';
-import { ISessionSummaryData } from '@/app/data/types';
+import { ISessionSummaryData } from '@/data/types';
 
 function onClick() {
 	console.log("Hello!")
