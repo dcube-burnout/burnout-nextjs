@@ -10,11 +10,11 @@ const CompleteMessage = () => {
 				<TextBox>
 					<h1 style={{ padding: "2rem" }}> Thanks for making work a better place! 🎉 </h1>
 					<p>
-						A little kindness and encouragement can go a long way in boosting someone's confidence and motivation! So, let's strive to make our peer reviews a highlight of the sprint with encouraging feedback. After all, we're all in this together and a positive work environment benefits us all.
+						A little kindness and encouragement can go a long way in boosting someone&apos;s confidence and motivation! So, let&apos;s strive to make our peer reviews a highlight of the sprint with encouraging feedback. After all, we&apos;re all in this together and a positive work environment benefits us all.
 					</p>
 				</TextBox>
 				<div style={{ display: "flex", justifyContent: "space-around", padding: "3rem" }}>
-					
+
                     <Link href={'/inbox'} passHref>
                         <ButtonBox style={{ backgroundColor: "transparent", border: "1px solid white", marginRight: "2rem" }}>
                             View my messages
