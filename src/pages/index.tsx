@@ -18,12 +18,12 @@ export default function Home() {
 	const [showModal, setShowModal] = useState(false);
 
 	useEffect(() => {
-		fetch('http://localhost:3001/users')
+		fetch(`${process.env.BACKEND}/users`)
 			.then(res => res.json())
 			.then(data => {
 				setMembersData(data.filter((m: any) => m.team === 1).map((m: any) => ({
 					id: m.id,
-					imgSrc: `../img/member${m.id}.jpg`,
+					imgSrc: `../ img / member${m.id}.jpg`,
 					description: <>
 						<MemberText>{m.name}</MemberText>
 						<MemberRole>{m.role}</MemberRole>
@@ -34,8 +34,8 @@ export default function Home() {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const sessionsData = await fetch('http://localhost:3001/sessions?userId=1');
-			const reflectionsData = await fetch('http://localhost:3001/reflections?userId=1');
+			const sessionsData = await fetch(`${process.env.BACKEND}/sessions?userId=1`);
+			const reflectionsData = await fetch(`${process.env.BACKEND}/reflections?userId=1`);
 
 			const sessions = await sessionsData.json();
 			const reflections = await reflectionsData.json();
