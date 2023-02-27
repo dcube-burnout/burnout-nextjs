@@ -1,88 +1,92 @@
-import React, { ChangeEventHandler } from 'react'
-import styled from 'styled-components'
-import { BsCircleFill } from "react-icons/bs"
-import { useRouter } from 'next/navigation';
+import React, { ChangeEventHandler } from "react";
+import styled from "styled-components";
+import { BsCircleFill } from "react-icons/bs";
+import { useRouter } from "next/navigation";
 
 interface SessionRowInterface {
-	id: string;
-	title: string;
-	date: string;
-	onClick: ChangeEventHandler<HTMLInputElement>;
-	done: boolean;
-	score: number;
+  id: string;
+  title: string;
+  date: string;
+  onClick: ChangeEventHandler<HTMLInputElement>;
+  done: boolean;
+  score: number;
 }
 
 const SessionRow = (props: SessionRowInterface) => {
-	const router = useRouter();
-	function getProgressColor(score: number) {
-		if (score == 0) {
-			return "grey"
-		} else if (score == 1) {
-			return "green"
-		} else if (score == 2) {
-			return "yellow"
-		} else if (score >= 3) {
-			return "red"
-		}
-	}
-	const progressColor = getProgressColor(props.score)
-	const disableButton = props.done;
+  const router = useRouter();
+  function getProgressColor(score: number) {
+    if (score == 0) {
+      return "grey";
+    } else if (score == 1) {
+      return "green";
+    } else if (score == 2) {
+      return "yellow";
+    } else if (score >= 3) {
+      return "red";
+    }
+  }
+  const progressColor = getProgressColor(props.score);
+  const disableButton = props.done;
 
-	return (
-		<>
-			<TableData>
-				{props.title}
-			</TableData>
+  return (
+    <>
+      <TableData>{props.title}</TableData>
 
-			<TableData>
-				{props.date}
-			</TableData>
+      <TableData>{props.date}</TableData>
 
-			<TableData>
-				<div style={{ display: "flex", alignContent: "center", justifyContent: "center" }}>
-					{
-						disableButton ?
-							<Button disabled> Done </Button> :
-							<StartButton onClick={() => router.push(`/session/${props.id}`)}> Start</StartButton>
-
-					}
-				</div>
-			</TableData>
-			<TableData>
-				<BsCircleFill color={progressColor} />
-			</TableData>
-		</>
-	)
-}
+      <TableData>
+        <div
+          style={{
+            display: "flex",
+            alignContent: "center",
+            justifyContent: "center",
+          }}
+        >
+          {disableButton ? (
+            <Button disabled> Done </Button>
+          ) : (
+            <StartButton onClick={() => router.push(`/session/${props.id}`)}>
+              {" "}
+              Start
+            </StartButton>
+          )}
+        </div>
+      </TableData>
+      <TableData>
+        <BsCircleFill color={progressColor} />
+      </TableData>
+    </>
+  );
+};
 
 const Button = styled.button`
-	background-color: white;
-	border-radius: 4px;
-	height: 2rem;
-	width: 4rem;
-	border-style: 1px solid;
-	border-color: white;
-	cursor: pointer;
-	color: #222;
+  background-color: white;
+  border-radius: 4px;
+  height: 2rem;
+  width: 4rem;
+  border-style: 1px solid;
+  border-color: white;
+  cursor: pointer;
+  color: #222;
 `;
 
 const StartButton = styled.button`
-	background-color: #FF6624;
-	border-radius: 4px;
-	height: 2rem;
-	width: 4rem;
-	border-style: 1px solid;
-	border-color: #FF6624;
-	color: white;
-	cursor: pointer;
+  background-color: #ff6624;
+  border-radius: 4px;
+  height: 2rem;
+  width: 4rem;
+  border-style: 1px solid;
+  border-color: #ff6624;
+  color: white;
+  cursor: pointer;
 `;
 
 const TableData = styled.td`
-	padding-top: 2rem;
-	padding-bottom: 2rem;
-	align-items: center;
-	justify-content: center;
-    text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 `;
 
-export default SessionRow
+export default SessionRow;

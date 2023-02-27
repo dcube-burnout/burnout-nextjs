@@ -1,11 +1,11 @@
 interface Props {
-  items: string[]
+  items: string[];
 }
 
 export const NavPath = ({ items = [] }: Props) => {
   return (
     <div>
-      <p>{items.join(' > ')}</p>
+      <p>{items.join(" > ")}</p>
     </div>
   );
-}
+};
