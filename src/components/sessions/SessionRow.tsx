@@ -1,8 +1,7 @@
 import React, { ChangeEventHandler } from 'react';
-import styled from 'styled-components';
 import { BsCircleFill } from 'react-icons/bs';
 import { useRouter } from 'next/navigation';
-import { TableCell, TableRow,  } from '@mui/material';
+import { TableCell, TableRow } from '@mui/material';
 import Button from '@mui/material/Button';
 
 interface SessionRowInterface {
@@ -36,9 +35,13 @@ const SessionRow = (props: SessionRowInterface) => {
       <TableCell>{props.date}</TableCell>
       <TableCell>
         {disableButton ? (
-          <Button variant="contained" disabled> Done </Button>
+          <Button variant="contained" disabled>
+            Done
+          </Button>
         ) : (
-          <Button variant="contained" onClick={() => router.push(`/session/${props.id}`)}> Start</Button>
+          <Button variant="contained" onClick={() => router.push(`/session/${props.id}`)}>
+            Start
+          </Button>
         )}
       </TableCell>
       <TableCell>

@@ -1,13 +1,12 @@
 import '../../src/styles/globals.css';
 import type { AppProps } from 'next/app';
-import { orange } from '@mui/material/colors';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 
 const darkTheme = createTheme({
   palette: {
     primary: {
       // Purple and green play nicely together.
-      main: "#ff6624",
+      main: '#ff6624',
     },
     secondary: {
       // This is green.A700 as hex.

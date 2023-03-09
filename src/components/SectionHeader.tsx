@@ -19,7 +19,11 @@ const SectionHeader = ({ headerType, title, description, buttonLabel, buttonActi
           &nbsp;{title}
         </h2>
         <br />
-        {buttonLabel && <Button variant="contained" onClick={buttonAction}>{buttonLabel}</Button>}
+        {buttonLabel && (
+          <Button variant="contained" onClick={buttonAction}>
+            {buttonLabel}
+          </Button>
+        )}
       </TextWrapper>
       <Description>{description}</Description>
     </>
