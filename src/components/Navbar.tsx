@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import Link from "next/link";
-import { MdAllInbox, MdPerson, MdWbSunny } from "react-icons/md";
-import { Open_Sans } from "@next/font/google";
+import styled from 'styled-components';
+import Link from 'next/link';
+import { MdAllInbox, MdPerson, MdWbSunny } from 'react-icons/md';
+import { Open_Sans } from '@next/font/google';
 
-const open_Sans = Open_Sans({ subsets: ["latin"] });
+const open_Sans = Open_Sans({ subsets: ['latin'] });
 
 const Nav = styled.nav`
   height: 80px;
@@ -49,13 +49,13 @@ const Navbar = () => {
   return (
     <Nav>
       <div>
-        <Link href="/" passHref style={{ textDecoration: "none" }}>
+        <Link href="/" passHref style={{ textDecoration: 'none' }}>
           <StyledLink
             style={{
-              fontSize: "1rem",
-              letterSpacing: "3px",
-              textDecoration: "none",
-              color: "white",
+              fontSize: '1rem',
+              letterSpacing: '3px',
+              textDecoration: 'none',
+              color: 'white',
             }}
           >
             Gratitude@GovTech
@@ -63,31 +63,19 @@ const Navbar = () => {
         </Link>
       </div>
       <NavWrapper>
-        <Link
-          href="/"
-          passHref
-          style={{ textDecoration: "none", color: "white" }}
-        >
+        <Link href="/" passHref style={{ textDecoration: 'none', color: 'white' }}>
           <ProfileButton>
-            <MdWbSunny style={{ verticalAlign: "middle", marginTop: "7px" }} />
+            <MdWbSunny style={{ verticalAlign: 'middle', marginTop: '7px' }} />
           </ProfileButton>
         </Link>
-        <Link
-          href="/inbox"
-          passHref
-          style={{ textDecoration: "none", color: "white" }}
-        >
+        <Link href="/inbox" passHref style={{ textDecoration: 'none', color: 'white' }}>
           <InboxButton>
-            <MdAllInbox style={{ verticalAlign: "middle", marginTop: "7px" }} />
+            <MdAllInbox style={{ verticalAlign: 'middle', marginTop: '7px' }} />
           </InboxButton>
         </Link>
-        <Link
-          href="/survey"
-          passHref
-          style={{ textDecoration: "none", color: "white" }}
-        >
+        <Link href="/survey" passHref style={{ textDecoration: 'none', color: 'white' }}>
           <ProfileButton>
-            <MdPerson style={{ verticalAlign: "middle", marginTop: "7px" }} />
+            <MdPerson style={{ verticalAlign: 'middle', marginTop: '7px' }} />
           </ProfileButton>
         </Link>
       </NavWrapper>

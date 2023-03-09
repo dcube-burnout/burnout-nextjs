@@ -1,10 +1,10 @@
-import React from "react";
-import { MediaQuery } from "@lifesg/react-design-system";
-import styled from "styled-components";
-import SectionHeader from "../SectionHeader";
-import { MdModeEdit } from "react-icons/md";
-import Link from "next/link";
-import { IMemberData } from "../../data/types";
+import React from 'react';
+import { MediaQuery } from '@lifesg/react-design-system';
+import styled from 'styled-components';
+import SectionHeader from '../SectionHeader';
+import { MdModeEdit } from 'react-icons/md';
+import Link from 'next/link';
+import { IMemberData } from '../../data/types';
 
 interface Props {
   data: IMemberData[];
@@ -14,12 +14,10 @@ const MemberCards = ({ data }: Props) => {
   return (
     <>
       <SectionHeader
-        headerType={"team"}
-        title={"Team members"}
-        description={
-          "Kind words goes a long way, let your team members know what they did well today!"
-        }
-        buttonLabel={"Add member"}
+        headerType={'team'}
+        title={'Team members'}
+        description={'Kind words goes a long way, let your team members know what they did well today!'}
+        buttonLabel={'Add member'}
       />
       <Layout>
         <CardWrapper>
@@ -27,16 +25,16 @@ const MemberCards = ({ data }: Props) => {
             <Card key={member.id}>
               <div
                 style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
                 }}
               >
                 <Img src={member.imgSrc} />
                 <DescriptionWrapper>{member.description}</DescriptionWrapper>
-                <Link href={"/appreciation/" + member.id} passHref>
+                <Link href={'/appreciation/' + member.id} passHref>
                   <Button>
-                    <MdModeEdit size={"1rem"} color={"white"} />
+                    <MdModeEdit size={'1rem'} color={'white'} />
                   </Button>
                 </Link>
               </div>
@@ -66,7 +64,7 @@ const Button = styled.button`
 const Layout = styled.div`
   padding: 2em 2em;
   display: grid;
-  grid-template-areas: "card card card card";
+  grid-template-areas: 'card card card card';
 `;
 
 const Img = styled.img`

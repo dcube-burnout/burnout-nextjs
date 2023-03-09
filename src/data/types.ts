@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ReactElement } from 'react';
 
 export interface IButtonData {
   label: string;
@@ -51,7 +51,7 @@ export interface Info {
   data: string;
 }
 
-type Category = "Low" | "Medium" | "High";
+type Category = 'Low' | 'Medium' | 'High';
 
 export interface IIndivScore {
   label: string;

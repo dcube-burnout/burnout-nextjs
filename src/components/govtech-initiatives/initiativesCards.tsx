@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import SectionHeader from "../SectionHeader";
-import Link from "next/link";
+import React from 'react';
+import styled from 'styled-components';
+import SectionHeader from '../SectionHeader';
+import Link from 'next/link';
 
 export const InitiativesCards = () => {
   return (
@@ -9,41 +9,34 @@ export const InitiativesCards = () => {
       <SectionHeader headerType="intitatives" title="GovTech's Intitatives" />
       <Grid>
         <Item>
-          <Link
-            href="https://supportgowhere.life.gov.sg/categories/mental-health?activeTab=services"
-            target="_blank"
-          >
-            <Img src={"/img/SupportGoWhere.png"} alt="SupportGoWhere" />
+          <Link href="https://supportgowhere.life.gov.sg/categories/mental-health?activeTab=services" target="_blank">
+            <Img src={'/img/SupportGoWhere.png'} alt="SupportGoWhere" />
             <Title>SupportGoWhere</Title>
             <br />
-            <Description>
-              Find support schemes and services all in one place.
-            </Description>
+            <Description>Find support schemes and services all in one place.</Description>
           </Link>
         </Item>
 
         <Item>
           <Link href="https://www.facebook.com/InsideGovTech/" target="_blank">
-            <Img src={"/img/Play@Govtech.png"} alt="Play@Govtech" />
+            <Img src={'/img/Play@Govtech.png'} alt="Play@Govtech" />
             <Title>Play@Govtech</Title>
             <br />
             <Description>
-              Join interest groups and hang out with other fellow Govtechies to
-              take your mind off work!
+              Join interest groups and hang out with other fellow Govtechies to take your mind off work!
             </Description>
           </Link>
         </Item>
 
         <Item>
           <Link href="" target="_blank">
-            <Img src={"/img/Wellness@govtech.png"} alt="Wellness@govtech" />
+            <Img src={'/img/Wellness@govtech.png'} alt="Wellness@govtech" />
             <Title>Wellness@Govtech</Title>
             <br />
             <Description>
               Mental health is equally as important as your physical health.
               <br />
-              Join our relaxing sessions of meditation through our telegram
-              group!
+              Join our relaxing sessions of meditation through our telegram group!
             </Description>
           </Link>
         </Item>

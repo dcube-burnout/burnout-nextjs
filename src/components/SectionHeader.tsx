@@ -1,22 +1,16 @@
-import React from "react";
-import styled from "styled-components";
-import { SectionHeader } from "./types";
-import { MdGroups, MdOutlineEventNote, MdStarRate } from "react-icons/md";
+import React from 'react';
+import styled from 'styled-components';
+import { SectionHeader } from './types';
+import { MdGroups, MdOutlineEventNote, MdStarRate } from 'react-icons/md';
 
-const SectionHeader = ({
-  headerType,
-  title,
-  description,
-  buttonLabel,
-  buttonAction,
-}: SectionHeader) => {
+const SectionHeader = ({ headerType, title, description, buttonLabel, buttonAction }: SectionHeader) => {
   return (
     <>
       <TextWrapper>
         <h2>
-          {headerType === "team" ? (
+          {headerType === 'team' ? (
             <MdGroups />
-          ) : headerType === "intitatives" ? (
+          ) : headerType === 'intitatives' ? (
             <MdStarRate />
           ) : (
             <MdOutlineEventNote />
@@ -50,8 +44,8 @@ const Button = styled.button`
 
 const TextWrapper = styled.div`
   margin-top: 48px;
-  flex-direction: "row";
-  flex-wrap: "wrap";
+  flex-direction: 'row';
+  flex-wrap: 'wrap';
   padding: 1rem 2rem;
   color: white;
   justify-content: space-between;
@@ -59,8 +53,8 @@ const TextWrapper = styled.div`
 `;
 
 const Description = styled.div`
-  flex-direction: "row";
-  flex-wrap: "wrap";
+  flex-direction: 'row';
+  flex-wrap: 'wrap';
   padding: 0.5rem 2rem;
   color: white;
 `;

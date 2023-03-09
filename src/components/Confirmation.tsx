@@ -1,35 +1,31 @@
-import React from "react";
-import styled from "styled-components";
-import { IMemberData } from "../data/types";
+import React from 'react';
+import styled from 'styled-components';
+import { IMemberData } from '../data/types';
 
 interface IConfirmation {
   memberData: IMemberData;
-  handleCancel: Function;
-  handleOk: Function;
+  handleCancel: () => void;
+  handleOk: () => void;
 }
 
-const Confirmation = ({
-  memberData,
-  handleCancel,
-  handleOk,
-}: IConfirmation) => {
+const Confirmation = ({ memberData, handleCancel, handleOk }: IConfirmation) => {
   const today = new Date().toLocaleDateString();
   return (
     <Box>
       <Img src="../img/positive1.png"></Img>
-      <div style={{ padding: "1em" }}>Submit comment?</div>
+      <div style={{ padding: '1em' }}>Submit comment?</div>
       <div>
         <span>
           You are leaving a comment for {memberData.name} on the {today}
         </span>
       </div>
-      <div style={{ padding: "2em" }}>Do you wish to proceed?</div>
+      <div style={{ padding: '2em' }}>Do you wish to proceed?</div>
       <div
         style={{
-          display: "flex",
-          justifyContent: "space-around",
-          width: "40rem",
-          padding: "10px",
+          display: 'flex',
+          justifyContent: 'space-around',
+          width: '40rem',
+          padding: '10px',
         }}
       >
         <BackButton onClick={() => handleCancel()}>Cancel</BackButton>

@@ -1,7 +1,7 @@
-import React, { ChangeEventHandler } from "react";
-import styled from "styled-components";
-import { BsCircleFill } from "react-icons/bs";
-import { useRouter } from "next/navigation";
+import React, { ChangeEventHandler } from 'react';
+import styled from 'styled-components';
+import { BsCircleFill } from 'react-icons/bs';
+import { useRouter } from 'next/navigation';
 
 interface SessionRowInterface {
   id: string;
@@ -16,13 +16,13 @@ const SessionRow = (props: SessionRowInterface) => {
   const router = useRouter();
   function getProgressColor(score: number) {
     if (score == 0) {
-      return "grey";
+      return 'grey';
     } else if (score == 1) {
-      return "green";
+      return 'green';
     } else if (score == 2) {
-      return "yellow";
+      return 'yellow';
     } else if (score >= 3) {
-      return "red";
+      return 'red';
     }
   }
   const progressColor = getProgressColor(props.score);
@@ -37,18 +37,15 @@ const SessionRow = (props: SessionRowInterface) => {
       <TableData>
         <div
           style={{
-            display: "flex",
-            alignContent: "center",
-            justifyContent: "center",
+            display: 'flex',
+            alignContent: 'center',
+            justifyContent: 'center',
           }}
         >
           {disableButton ? (
             <Button disabled> Done </Button>
           ) : (
-            <StartButton onClick={() => router.push(`/session/${props.id}`)}>
-              {" "}
-              Start
-            </StartButton>
+            <StartButton onClick={() => router.push(`/session/${props.id}`)}> Start</StartButton>
           )}
         </div>
       </TableData>

@@ -1,55 +1,48 @@
-import React from "react";
-import styled from "styled-components";
-import Link from "next/link";
+import React from 'react';
+import styled from 'styled-components';
+import Link from 'next/link';
 
 const CompleteMessage = () => {
   return (
     <Box>
       <div
         style={{
-          display: "flex",
-          flexDirection: "column",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          alignItems: "center",
+          display: 'flex',
+          flexDirection: 'column',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         <Img src="../img/complete1.png"></Img>
         <TextBox>
-          <h1 style={{ padding: "2rem" }}>
-            {" "}
-            Thanks for making work a better place! 🎉{" "}
-          </h1>
+          <h1 style={{ padding: '2rem' }}> Thanks for making work a better place! 🎉 </h1>
           <p>
-            A little kindness and encouragement can go a long way in boosting
-            someone&apos;s confidence and motivation! So, let&apos;s strive to
-            make our peer reviews a highlight of the sprint with encouraging
-            feedback. After all, we&apos;re all in this together and a positive
-            work environment benefits us all.
+            A little kindness and encouragement can go a long way in boosting someone&apos;s confidence and motivation!
+            So, let&apos;s strive to make our peer reviews a highlight of the sprint with encouraging feedback. After
+            all, we&apos;re all in this together and a positive work environment benefits us all.
           </p>
         </TextBox>
         <div
           style={{
-            display: "flex",
-            justifyContent: "space-around",
-            padding: "3rem",
+            display: 'flex',
+            justifyContent: 'space-around',
+            padding: '3rem',
           }}
         >
-          <Link href={"/inbox"} passHref>
+          <Link href={'/inbox'} passHref>
             <ButtonBox
               style={{
-                backgroundColor: "transparent",
-                border: "1px solid white",
-                marginRight: "2rem",
+                backgroundColor: 'transparent',
+                border: '1px solid white',
+                marginRight: '2rem',
               }}
             >
               View my messages
             </ButtonBox>
           </Link>
-          <Link href={"/"} passHref>
-            <ButtonBox style={{ backgroundColor: "#FF6624" }}>
-              Complete
-            </ButtonBox>
+          <Link href={'/'} passHref>
+            <ButtonBox style={{ backgroundColor: '#FF6624' }}>Complete</ButtonBox>
           </Link>
         </div>
       </div>

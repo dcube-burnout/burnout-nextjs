@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { IMemberData } from "./types";
+import styled from 'styled-components';
+import { IMemberData } from './types';
 
 export const MemberText = styled.h4`
   color: white;
@@ -13,9 +13,9 @@ export const MemberRole = styled.div`
 
 export const memberData: IMemberData[] = [
   {
-    id: "1",
-    name: "Ann Smith",
-    imgSrc: "../../img/member1.jpg",
+    id: '1',
+    name: 'Ann Smith',
+    imgSrc: '../../img/member1.jpg',
     description: (
       <>
         <MemberText>Ann Smith</MemberText>
@@ -24,21 +24,21 @@ export const memberData: IMemberData[] = [
     ),
   },
   {
-    id: "2",
-    name: "John Lim",
-    imgSrc: "../../img/member2.jpg",
+    id: '2',
+    name: 'John Lim',
+    imgSrc: '../../img/member2.jpg',
     description: (
       <>
         <MemberText>John Lim</MemberText>
-        {"\n"}
+        {'\n'}
         <MemberRole>UX designer</MemberRole>
       </>
     ),
   },
   {
-    id: "3",
-    name: "Harry Teo",
-    imgSrc: "../../img/member3.jpg",
+    id: '3',
+    name: 'Harry Teo',
+    imgSrc: '../../img/member3.jpg',
     description: (
       <>
         <MemberText>Harry Teo</MemberText>
@@ -47,9 +47,9 @@ export const memberData: IMemberData[] = [
     ),
   },
   {
-    id: "4",
-    name: "Richard Lee",
-    imgSrc: "../../img/member4.jpg",
+    id: '4',
+    name: 'Richard Lee',
+    imgSrc: '../../img/member4.jpg',
     description: (
       <>
         <MemberText>Richard Lee</MemberText>
@@ -58,9 +58,9 @@ export const memberData: IMemberData[] = [
     ),
   },
   {
-    id: "5",
-    name: "Charlotte Au",
-    imgSrc: "../../img/member5.png",
+    id: '5',
+    name: 'Charlotte Au',
+    imgSrc: '../../img/member5.png',
     description: (
       <>
         <MemberText>Charlotte Au</MemberText>
@@ -69,9 +69,9 @@ export const memberData: IMemberData[] = [
     ),
   },
   {
-    id: "6",
-    name: "Rebecca Loh",
-    imgSrc: "../../img/member6.jpg",
+    id: '6',
+    name: 'Rebecca Loh',
+    imgSrc: '../../img/member6.jpg',
     description: (
       <>
         <MemberText>Rebecca Loh</MemberText>
@@ -80,9 +80,9 @@ export const memberData: IMemberData[] = [
     ),
   },
   {
-    id: "7",
-    name: "Martin Tay",
-    imgSrc: "../../img/member7.jpg",
+    id: '7',
+    name: 'Martin Tay',
+    imgSrc: '../../img/member7.jpg',
     description: (
       <>
         <MemberText>Martin Tay</MemberText>
@@ -91,9 +91,9 @@ export const memberData: IMemberData[] = [
     ),
   },
   {
-    id: "8",
-    name: "Sarah Peh",
-    imgSrc: "../../img/member8.jpg",
+    id: '8',
+    name: 'Sarah Peh',
+    imgSrc: '../../img/member8.jpg',
     description: (
       <>
         <MemberText>Sarah Peh</MemberText>

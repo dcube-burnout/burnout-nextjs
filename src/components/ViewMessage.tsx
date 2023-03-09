@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import Particle from "./background-animation/Particle";
-import Link from "next/link";
+import React from 'react';
+import styled from 'styled-components';
+import Particle from './background-animation/Particle';
+import Link from 'next/link';
 
 interface myProps {
   title: string;
@@ -13,7 +13,7 @@ const ViewMessage = ({ title, date, message }: myProps) => {
   return (
     <>
       <Container>
-        <h1 style={{ color: "white", padding: "25px" }}>{title}</h1>
+        <h1 style={{ color: 'white', padding: '25px' }}>{title}</h1>
         <TextBox>
           Date
           <br />
@@ -22,13 +22,13 @@ const ViewMessage = ({ title, date, message }: myProps) => {
         <InputBox>{message}</InputBox>
         <div
           style={{
-            display: "flex",
-            justifyContent: "space-between",
-            width: "40rem",
-            padding: "4rem 2rem",
+            display: 'flex',
+            justifyContent: 'space-between',
+            width: '40rem',
+            padding: '4rem 2rem',
           }}
         >
-          <Link href={"/inbox"} passHref>
+          <Link href={'/inbox'} passHref>
             <BackButton>Back</BackButton>
           </Link>
         </div>

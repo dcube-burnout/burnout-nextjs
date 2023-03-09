@@ -1,8 +1,8 @@
-import { open_Sans } from "../../global-style";
-import { Form } from "@lifesg/react-design-system";
-import axios from "axios";
-import { useState } from "react";
-import styled from "styled-components";
+import { open_Sans } from '../../global-style';
+import { Form } from '@lifesg/react-design-system';
+import axios from 'axios';
+import { useState } from 'react';
+import styled from 'styled-components';
 
 const Box = styled.div`
   display: flex;
@@ -92,10 +92,10 @@ interface Props {
 }
 
 export const CreateSessionForm = ({ closeModalAction }: Props) => {
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState('');
 
   const submitAction = async () => {
-    await axios.post(`api/sessions`, { title, userId: 1 });
+    await axios.post('api/sessions', { title, userId: 1 });
     window.location.reload();
   };
 
@@ -114,8 +114,7 @@ export const CreateSessionForm = ({ closeModalAction }: Props) => {
         Create a session
         <br />
         <br />
-        You are creating a session for{" "}
-        <TeamName>Team Burnout Hackers.</TeamName>
+        You are creating a session for <TeamName>Team Burnout Hackers.</TeamName>
       </P>
 
       <FormSection>

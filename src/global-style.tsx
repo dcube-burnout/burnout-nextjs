@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { Open_Sans } from "@next/font/google";
+import styled from 'styled-components';
+import { Open_Sans } from '@next/font/google';
 
-export const open_Sans = Open_Sans({ subsets: ["latin"] });
+export const open_Sans = Open_Sans({ subsets: ['latin'] });
 
 export const Container = styled.div`
   background: #0d1435;

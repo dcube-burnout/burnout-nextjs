@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import SessionRow from "./SessionRow";
-import SectionHeader from "../SectionHeader";
-import { ISessionSummaryData } from "@/data/types";
+import styled from 'styled-components';
+import SessionRow from './SessionRow';
+import SectionHeader from '../SectionHeader';
+import type { ISessionSummaryData } from '@/data/types';
 
 function onClick() {
-  console.log("Hello!");
+  console.log('Hello!');
 }
 
 interface Props {
@@ -16,9 +16,9 @@ const Session = ({ data, openModalAction }: Props) => {
   return (
     <>
       <SectionHeader
-        headerType={"sessions"}
-        title={"Sessions"}
-        buttonLabel={"Create session"}
+        headerType={'sessions'}
+        title={'Sessions'}
+        buttonLabel={'Create session'}
         buttonAction={openModalAction}
       />
       <Container>
@@ -26,30 +26,22 @@ const Session = ({ data, openModalAction }: Props) => {
           <tbody>
             <tr
               style={{
-                paddingTop: "2rem",
-                textAlign: "center",
-                verticalAlign: "middle",
+                paddingTop: '2rem',
+                textAlign: 'center',
+                verticalAlign: 'middle',
               }}
             >
-              <th style={{ padding: "2rem", textDecoration: "underline" }}>
-                Title
-              </th>
+              <th style={{ padding: '2rem', textDecoration: 'underline' }}>Title</th>
 
-              <th style={{ padding: "2rem", textDecoration: "underline" }}>
-                Date
-              </th>
+              <th style={{ padding: '2rem', textDecoration: 'underline' }}>Date</th>
 
-              <th style={{ padding: "2rem", textDecoration: "underline" }}>
-                Progress
-              </th>
+              <th style={{ padding: '2rem', textDecoration: 'underline' }}>Progress</th>
 
-              <th style={{ padding: "2rem", textDecoration: "underline" }}>
-                Score
-              </th>
+              <th style={{ padding: '2rem', textDecoration: 'underline' }}>Score</th>
             </tr>
 
             {data.map((session) => (
-              <tr key={session.id} style={{ borderCollapse: "collapse" }}>
+              <tr key={session.id} style={{ borderCollapse: 'collapse' }}>
                 <SessionRow
                   id={session.id}
                   title={session.title}

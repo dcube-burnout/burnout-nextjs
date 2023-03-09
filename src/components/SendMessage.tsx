@@ -1,55 +1,47 @@
-import { Textarea } from "@lifesg/react-design-system";
-import React, { useState } from "react";
-import styled from "styled-components";
-import { IMemberData } from "../data/types";
-import HeaderSection from "./team-member/HeaderSection";
-import Link from "next/link";
+import { Textarea } from '@lifesg/react-design-system';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { IMemberData } from '../data/types';
+import HeaderSection from './team-member/HeaderSection';
+import Link from 'next/link';
 
 interface myProps {
   memberData: IMemberData;
-  handleComplete: Function;
+  handleComplete: (s: string) => void;
 }
 
 const SendMessage = ({ memberData, handleComplete }: myProps) => {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   return (
     <Container>
       <HeaderSection
         profile={<Img src={memberData.imgSrc} />}
-        teamName={"Team Burnout Hackers"}
+        teamName={'Team Burnout Hackers'}
         name={memberData.name}
       />
 
-      <h1 style={{ color: "white", padding: "25px" }}>
-        Leave a comment for your teammate! ✌
-      </h1>
+      <h1 style={{ color: 'white', padding: '25px' }}>Leave a comment for your teammate! ✌</h1>
       <TextBox>
-        Take a few moments to provide feedback to&nbsp;{" "}
-        <span style={{ color: "#FF6624", fontWeight: "bold" }}>
-          {memberData.name}
-        </span>
+        Take a few moments to provide feedback to&nbsp;{' '}
+        <span style={{ color: '#FF6624', fontWeight: 'bold' }}>{memberData.name}</span>
         &nbsp; on areas such as
-        <br /> communication, teamwork, and job performance — try to be
-        constructive in your
+        <br /> communication, teamwork, and job performance — try to be constructive in your
         <br />
-        comments, focusing on specific behaviors or actions rather than personal
-        opinions!
+        comments, focusing on specific behaviors or actions rather than personal opinions!
       </TextBox>
       <InputBox value={input} onChange={(e) => setInput(e.target.value)} />
       <div
         style={{
-          display: "flex",
-          justifyContent: "space-between",
-          width: "40rem",
-          padding: "4rem 2rem",
+          display: 'flex',
+          justifyContent: 'space-between',
+          width: '40rem',
+          padding: '4rem 2rem',
         }}
       >
-        <Link href={"/"} passHref>
+        <Link href={'/'} passHref>
           <BackButton>Back</BackButton>
         </Link>
-        <Button onClick={() => (input ? handleComplete(input) : null)}>
-          Submit
-        </Button>
+        <Button onClick={() => (input ? handleComplete(input) : null)}>Submit</Button>
       </div>
     </Container>
   );

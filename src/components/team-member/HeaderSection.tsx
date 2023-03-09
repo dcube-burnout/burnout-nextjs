@@ -1,13 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { HeaderSection } from "../types";
+import React from 'react';
+import styled from 'styled-components';
+import { HeaderSection } from '../types';
 
-const HeaderSection = ({
-  profile,
-  name,
-  teamName,
-  userDetails,
-}: HeaderSection) => {
+const HeaderSection = ({ profile, name, teamName, userDetails }: HeaderSection) => {
   return (
     <>
       <Container>
