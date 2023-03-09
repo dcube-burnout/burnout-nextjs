@@ -1,8 +1,8 @@
 import { open_Sans } from '../../global-style';
-import { Form } from '@lifesg/react-design-system';
 import axios from 'axios';
 import { useState } from 'react';
 import styled from 'styled-components';
+import { TextField } from '@mui/material';
 
 const Box = styled.div`
   display: flex;
@@ -88,44 +88,44 @@ const ExitButton = styled.button`
 `;
 
 interface Props {
-  closeModalAction: () => void;
+	closeModalAction: () => void;
 }
 
 export const CreateSessionForm = ({ closeModalAction }: Props) => {
-  const [title, setTitle] = useState('');
+	const [title, setTitle] = useState('');
 
-  const submitAction = async () => {
-    await axios.post('api/sessions', { title, userId: 1 });
-    window.location.reload();
-  };
+	const submitAction = async () => {
+		await axios.post('api/sessions', { title, userId: 1 });
+		window.location.reload();
+	};
 
-  const closeAction = () => {
-    closeModalAction();
-  };
+	const closeAction = () => {
+		closeModalAction();
+	};
 
-  const inputOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTitle(e.target.value);
-  };
+	const inputOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setTitle(e.target.value);
+	};
 
-  return (
-    <Box>
-      <CloseButton onClick={closeAction}>x</CloseButton>
-      <P>
-        Create a session
-        <br />
-        <br />
-        You are creating a session for <TeamName>Team Burnout Hackers.</TeamName>
-      </P>
+	return (
+		<Box>
+			<CloseButton onClick={closeAction}>x</CloseButton>
+			<P>
+				Create a session
+				<br />
+				<br />
+				You are creating a session for <TeamName>Team Burnout Hackers.</TeamName>
+			</P>
 
-      <FormSection>
-        <Label>Title</Label>
-        <Form.Input type="text" placeholder="Title" onChange={inputOnChange} />
-      </FormSection>
+			<FormSection>
+				<Label>Title</Label>
+				<TextField id="outlined-basic" label="Title" variant="outlined" onChange={inputOnChange} />
+			</FormSection>
 
-      <ButtonSection>
-        <ExitButton onClick={closeAction}>Cancel</ExitButton>
-        <BeginButton onClick={submitAction}>Create</BeginButton>
-      </ButtonSection>
-    </Box>
-  );
+			<ButtonSection>
+				<ExitButton onClick={closeAction}>Cancel</ExitButton>
+				<BeginButton onClick={submitAction}>Create</BeginButton>
+			</ButtonSection>
+		</Box>
+	);
 };

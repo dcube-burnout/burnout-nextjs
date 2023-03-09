@@ -1,5 +1,4 @@
 import React from 'react';
-import { MediaQuery } from '@lifesg/react-design-system';
 import styled from 'styled-components';
 import SectionHeader from '../SectionHeader';
 import { MdModeEdit } from 'react-icons/md';
@@ -7,43 +6,43 @@ import Link from 'next/link';
 import { IMemberData } from '../../data/types';
 
 interface Props {
-  data: IMemberData[];
+	data: IMemberData[];
 }
 
 const MemberCards = ({ data }: Props) => {
-  return (
-    <>
-      <SectionHeader
-        headerType={'team'}
-        title={'Team members'}
-        description={'Kind words goes a long way, let your team members know what they did well today!'}
-        buttonLabel={'Add member'}
-      />
-      <Layout>
-        <CardWrapper>
-          {data.map((member) => (
-            <Card key={member.id}>
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}
-              >
-                <Img src={member.imgSrc} />
-                <DescriptionWrapper>{member.description}</DescriptionWrapper>
-                <Link href={'/appreciation/' + member.id} passHref>
-                  <Button>
-                    <MdModeEdit size={'1rem'} color={'white'} />
-                  </Button>
-                </Link>
-              </div>
-            </Card>
-          ))}
-        </CardWrapper>
-      </Layout>
-    </>
-  );
+	return (
+		<>
+			<SectionHeader
+				headerType={'team'}
+				title={'Team members'}
+				description={'Kind words goes a long way, let your team members know what they did well today!'}
+				buttonLabel={'Add member'}
+			/>
+			<Layout>
+				<CardWrapper>
+					{data.map((member) => (
+						<Card key={member.id}>
+							<div
+								style={{
+									display: 'flex',
+									justifyContent: 'space-between',
+									alignItems: 'center',
+								}}
+							>
+								<Img src={member.imgSrc} />
+								<DescriptionWrapper>{member.description}</DescriptionWrapper>
+								<Link href={'/appreciation/' + member.id} passHref>
+									<Button>
+										<MdModeEdit size={'1rem'} color={'white'} />
+									</Button>
+								</Link>
+							</div>
+						</Card>
+					))}
+				</CardWrapper>
+			</Layout>
+		</>
+	);
 };
 
 const DescriptionWrapper = styled.div`
@@ -99,7 +98,7 @@ const Card = styled.div`
   transition: 0.3s;
   border: 2px solid transparent;
 
-  ${MediaQuery.MaxWidth.tablet} {
+  @media screen and (max-width: 1199px) {
     flex: 0 0 calc(50%);
     max-width: calc(50% - 5px);
   }
