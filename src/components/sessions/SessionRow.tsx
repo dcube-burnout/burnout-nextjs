@@ -2,7 +2,8 @@ import React, { ChangeEventHandler } from 'react';
 import styled from 'styled-components';
 import { BsCircleFill } from 'react-icons/bs';
 import { useRouter } from 'next/navigation';
-import { TableCell, TableRow } from '@mui/material';
+import { TableCell, TableRow,  } from '@mui/material';
+import Button from '@mui/material/Button';
 
 interface SessionRowInterface {
   id: string;
@@ -35,9 +36,9 @@ const SessionRow = (props: SessionRowInterface) => {
       <TableCell>{props.date}</TableCell>
       <TableCell>
         {disableButton ? (
-          <Button disabled> Done </Button>
+          <Button variant="contained" disabled> Done </Button>
         ) : (
-          <StartButton onClick={() => router.push(`/session/${props.id}`)}> Start</StartButton>
+          <Button variant="contained" onClick={() => router.push(`/session/${props.id}`)}> Start</Button>
         )}
       </TableCell>
       <TableCell>
@@ -46,27 +47,5 @@ const SessionRow = (props: SessionRowInterface) => {
     </TableRow>
   );
 };
-
-const Button = styled.button`
-  background-color: white;
-  border-radius: 4px;
-  height: 2rem;
-  width: 4rem;
-  border-style: 1px solid;
-  border-color: white;
-  cursor: pointer;
-  color: #222;
-`;
-
-const StartButton = styled.button`
-  background-color: #ff6624;
-  border-radius: 4px;
-  height: 2rem;
-  width: 4rem;
-  border-style: 1px solid;
-  border-color: #ff6624;
-  color: white;
-  cursor: pointer;
-`;
 
 export default SessionRow;

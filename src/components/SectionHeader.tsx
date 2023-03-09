@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { SectionHeader } from './types';
 import { MdGroups, MdOutlineEventNote, MdStarRate } from 'react-icons/md';
+import Button from '@mui/material/Button';
 
 const SectionHeader = ({ headerType, title, description, buttonLabel, buttonAction }: SectionHeader) => {
   return (
@@ -18,29 +19,12 @@ const SectionHeader = ({ headerType, title, description, buttonLabel, buttonActi
           &nbsp;{title}
         </h2>
         <br />
-        {buttonLabel && <Button onClick={buttonAction}>{buttonLabel}</Button>}
+        {buttonLabel && <Button variant="contained" onClick={buttonAction}>{buttonLabel}</Button>}
       </TextWrapper>
       <Description>{description}</Description>
     </>
   );
 };
-
-const Button = styled.button`
-  background-color: #ff6624;
-  width: 150px;
-  height: 50px;
-  color: white;
-  font-size: 1rem;
-  border-radius: 4px;
-  border-style: none;
-  cursor: pointer;
-  z-index: 100; // For particles
-
-  &:hover {
-    background-color: #cd3e00;
-    box-shadow: 1px 1px;
-  }
-`;
 
 const TextWrapper = styled.div`
   margin-top: 48px;
