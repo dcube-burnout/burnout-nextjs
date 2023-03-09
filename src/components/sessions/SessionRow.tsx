@@ -2,6 +2,7 @@ import React, { ChangeEventHandler } from 'react';
 import styled from 'styled-components';
 import { BsCircleFill } from 'react-icons/bs';
 import { useRouter } from 'next/navigation';
+import { TableCell, TableRow } from '@mui/material';
 
 interface SessionRowInterface {
   id: string;
@@ -29,30 +30,20 @@ const SessionRow = (props: SessionRowInterface) => {
   const disableButton = props.done;
 
   return (
-    <>
-      <TableData>{props.title}</TableData>
-
-      <TableData>{props.date}</TableData>
-
-      <TableData>
-        <div
-          style={{
-            display: 'flex',
-            alignContent: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          {disableButton ? (
-            <Button disabled> Done </Button>
-          ) : (
-            <StartButton onClick={() => router.push(`/session/${props.id}`)}> Start</StartButton>
-          )}
-        </div>
-      </TableData>
-      <TableData>
+    <TableRow>
+      <TableCell>{props.title}</TableCell>
+      <TableCell>{props.date}</TableCell>
+      <TableCell>
+        {disableButton ? (
+          <Button disabled> Done </Button>
+        ) : (
+          <StartButton onClick={() => router.push(`/session/${props.id}`)}> Start</StartButton>
+        )}
+      </TableCell>
+      <TableCell>
         <BsCircleFill color={progressColor} />
-      </TableData>
-    </>
+      </TableCell>
+    </TableRow>
   );
 };
 
@@ -76,14 +67,6 @@ const StartButton = styled.button`
   border-color: #ff6624;
   color: white;
   cursor: pointer;
-`;
-
-const TableData = styled.td`
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
 `;
 
 export default SessionRow;

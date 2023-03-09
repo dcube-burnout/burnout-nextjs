@@ -1,7 +1,7 @@
-import styled from 'styled-components';
 import SessionRow from './SessionRow';
 import SectionHeader from '../SectionHeader';
 import type { ISessionSummaryData } from '@/data/types';
+import { TableBody, TableCell, TableContainer, TableHead, Table } from '@mui/material';
 
 function onClick() {
   console.log('Hello!');
@@ -21,67 +21,31 @@ const Session = ({ data, openModalAction }: Props) => {
         buttonLabel={'Create session'}
         buttonAction={openModalAction}
       />
-      <Container>
+      <TableContainer>
         <Table>
-          <tbody>
-            <tr
-              style={{
-                paddingTop: '2rem',
-                textAlign: 'center',
-                verticalAlign: 'middle',
-              }}
-            >
-              <th style={{ padding: '2rem', textDecoration: 'underline' }}>Title</th>
-
-              <th style={{ padding: '2rem', textDecoration: 'underline' }}>Date</th>
-
-              <th style={{ padding: '2rem', textDecoration: 'underline' }}>Progress</th>
-
-              <th style={{ padding: '2rem', textDecoration: 'underline' }}>Score</th>
-            </tr>
-
+          <TableHead>
+            <TableCell>Title</TableCell>
+            <TableCell>Date</TableCell>
+            <TableCell>Progress</TableCell>
+            <TableCell>Score</TableCell>
+          </TableHead>
+          <TableBody>
             {data.map((session) => (
-              <tr key={session.id} style={{ borderCollapse: 'collapse' }}>
-                <SessionRow
-                  id={session.id}
-                  title={session.title}
-                  date={session.date}
-                  onClick={onClick}
-                  done={session.done}
-                  score={session.score}
-                />
-              </tr>
+              <SessionRow
+                id={session.id}
+                key={session.id}
+                title={session.title}
+                date={session.date}
+                onClick={onClick}
+                done={session.done}
+                score={session.score}
+              />
             ))}
-          </tbody>
+          </TableBody>
         </Table>
-      </Container>
+      </TableContainer>
     </>
   );
 };
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 2.5rem;
-`;
-
-const Table = styled.table`
-  display: table;
-  border: 1px solid white;
-  color: white;
-  border-radius: 16px;
-  z-index: 100; // For particles
-  background-color: #0d1435;
-  width: 100%;
-
-  @media screen and (max-width: 540px) {
-    display: block;
-    overflow-x: auto;
-  }
-
-  tr:nth-child(even) {
-    background-color: #112161;
-  }
-`;
 
 export default Session;
