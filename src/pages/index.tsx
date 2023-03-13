@@ -18,9 +18,11 @@ export default function Home() {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    fetch('api/users')
+    console.log({ NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_BACKEND });
+    fetch((process.env.NEXT_PUBLIC_BACKEND ?? '') + 'api/users')
       .then((res) => res.json())
       .then((data) => {
+        console.log({ data });
         setMembersData(
           data
             .filter((m: any) => m.team === 1)
@@ -40,8 +42,8 @@ export default function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const sessionsData = await fetch('api/sessions?userId=1');
-      const reflectionsData = await fetch('api/reflections?userId=1');
+      const sessionsData = await fetch((process.env.NEXT_PUBLIC_BACKEND ?? '') + 'api/sessions?userId=1');
+      const reflectionsData = await fetch((process.env.NEXT_PUBLIC_BACKEND ?? '') + 'api/reflections?userId=1');
 
       const sessions = await sessionsData.json();
       const reflections = await reflectionsData.json();
