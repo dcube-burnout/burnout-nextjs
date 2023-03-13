@@ -18,11 +18,9 @@ export default function Home() {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    console.log({ NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_BACKEND });
     fetch((process.env.NEXT_PUBLIC_BACKEND ?? '') + 'api/users')
       .then((res) => res.json())
       .then((data) => {
-        console.log({ data });
         setMembersData(
           data
             .filter((m: any) => m.team === 1)
