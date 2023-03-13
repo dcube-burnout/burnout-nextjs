@@ -8,7 +8,7 @@ import Session from '../components/sessions/Session';
 import { memberData, MemberRole, MemberText } from '../data/member-data';
 import { sessionSummaryData } from '../data/session-summary';
 import { ISessionSummaryData } from '../data/types';
-import { Modal } from '@lifesg/react-design-system';
+import Modal from '@mui/material/Modal';
 import { CreateSessionForm } from '../components/sessions/CreateSessionForm';
 import { InitiativesCards } from '../components/govtech-initiatives/initiativesCards';
 import { Container } from '@mui/material';
@@ -19,7 +19,7 @@ export default function Home() {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    fetch('api/users')
+    fetch((process.env.NEXT_PUBLIC_BACKEND ?? '') + 'api/users')
       .then((res) => res.json())
       .then((data) => {
         setMembersData(
@@ -41,8 +41,8 @@ export default function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const sessionsData = await fetch('api/sessions?userId=1');
-      const reflectionsData = await fetch('api/reflections?userId=1');
+      const sessionsData = await fetch((process.env.NEXT_PUBLIC_BACKEND ?? '') + 'api/sessions?userId=1');
+      const reflectionsData = await fetch((process.env.NEXT_PUBLIC_BACKEND ?? '') + 'api/reflections?userId=1');
 
       const sessions = await sessionsData.json();
       const reflections = await reflectionsData.json();
@@ -83,7 +83,7 @@ export default function Home() {
         <MemberCards data={membersData} />
         <hr />
         <Session data={sessionsData} openModalAction={() => setShowModal(true)} />
-        <Modal show={showModal}>
+        <Modal open={showModal}>
           <CreateSessionForm closeModalAction={() => setShowModal(false)} />
         </Modal>
         <hr />

@@ -1,8 +1,8 @@
 import { open_Sans } from '../../global-style';
-import { Form } from '@lifesg/react-design-system';
 import axios from 'axios';
 import { useState } from 'react';
 import styled from 'styled-components';
+import { Button, TextField } from '@mui/material';
 
 const Box = styled.div`
   display: flex;
@@ -39,11 +39,6 @@ const TeamName = styled.span`
   color: #ff6624;
 `;
 
-const Label = styled.label`
-  padding-bottom: 12px;
-  font-size: 0.8em;
-`;
-
 const FormSection = styled.div`
   padding-bottom: 48px;
 `;
@@ -51,6 +46,12 @@ const FormSection = styled.div`
 const ButtonSection = styled.div`
   padding-bottom: 72px;
 `;
+
+const ExitButton = styled(Button)({
+  backgroundColor: '#112161',
+  border: '1px solid #57a9ff',
+  marginLeft: '20px',
+});
 
 const BeginButton = styled.button`
   background-color: #ff6624;
@@ -70,22 +71,22 @@ const BeginButton = styled.button`
   }
 `;
 
-const ExitButton = styled.button`
-  background-color: #112161;
-  border: 1px solid #57a9ff;
-  width: 150px;
-  height: 50px;
-  color: white;
-  font-size: 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  z-index: 100; // For particles
+// const ExitButton = styled.button`
+//   background-color: #112161;
+//   border: 1px solid #57a9ff;
+//   width: 150px;
+//   height: 50px;
+//   color: white;
+//   font-size: 1rem;
+//   border-radius: 4px;
+//   cursor: pointer;
+//   z-index: 100; // For particles
 
-  &:hover {
-    background-color: #57a9ff;
-    box-shadow: 1px 1px;
-  }
-`;
+//   &:hover {
+//     background-color: #57a9ff;
+//     box-shadow: 1px 1px;
+//   }
+// `;
 
 interface Props {
   closeModalAction: () => void;
@@ -118,12 +119,17 @@ export const CreateSessionForm = ({ closeModalAction }: Props) => {
       </P>
 
       <FormSection>
-        <Label>Title</Label>
-        <Form.Input type="text" placeholder="Title" onChange={inputOnChange} />
+        <TextField id="outlined-basic" label="Title" variant="outlined" onChange={inputOnChange} />
       </FormSection>
 
       <ButtonSection>
-        <ExitButton onClick={closeAction}>Cancel</ExitButton>
+        <ExitButton variant="outlined" onClick={closeAction} size="large">
+          Cancel
+        </ExitButton>
+        <Button variant="contained" onClick={closeAction} size="large">
+          Create
+        </Button>
+        {/* <ExitButton onClick={closeAction}>Cancel</ExitButton> */}
         <BeginButton onClick={submitAction}>Create</BeginButton>
       </ButtonSection>
     </Box>
