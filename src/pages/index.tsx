@@ -77,8 +77,8 @@ export default function Home() {
 
   return (
     <>
+      <Navbar />
       <Container>
-        <Navbar />
         <HeaderSection profile={<FireIcon>🔥</FireIcon>} teamName={'Team'} userDetails={'Burnout Hackers'} />
         <MemberCards data={membersData} />
         <hr />
