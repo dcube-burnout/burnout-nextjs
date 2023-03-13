@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import MemberCards from '../components/team-member/MembersCard';
+import MemberCards from '../components/team-member/CardsSection';
 import Navbar from '../components/Navbar';
-import { Container, FireIcon } from '../global-style';
+import { FireIcon } from '../global-style';
 import HeaderSection from '../components/team-member/HeaderSection';
 import Session from '../components/sessions/Session';
-import Particle from '../components/background-animation/Particle';
+// import Particle from '../components/background-animation/Particle';
 import { memberData, MemberRole, MemberText } from '../data/member-data';
 import { sessionSummaryData } from '../data/session-summary';
 import { ISessionSummaryData } from '../data/types';
 import { Modal } from '@lifesg/react-design-system';
 import { CreateSessionForm } from '../components/sessions/CreateSessionForm';
 import { InitiativesCards } from '../components/govtech-initiatives/initiativesCards';
+import { Container } from '@mui/material';
 
 export default function Home() {
   const [membersData, setMembersData] = useState(memberData);
@@ -88,7 +89,7 @@ export default function Home() {
         <hr />
         <InitiativesCards />
       </Container>
-      <Particle />
+      {/* <Particle /> */}
     </>
   );
 }

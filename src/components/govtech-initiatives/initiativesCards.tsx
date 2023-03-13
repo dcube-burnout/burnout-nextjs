@@ -2,11 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import SectionHeader from '../SectionHeader';
 import Link from 'next/link';
+import Section from '../Section';
+import { MdStarRate } from 'react-icons/md';
 
 export const InitiativesCards = () => {
   return (
-    <>
-      <SectionHeader headerType="intitatives" title="GovTech's Intitatives" />
+    <Section>
+      <SectionHeader headerType="intitatives" title="GovTech's Intitatives" Icon={MdStarRate} />
       <Grid>
         <Item>
           <Link href="https://supportgowhere.life.gov.sg/categories/mental-health?activeTab=services" target="_blank">
@@ -41,7 +43,7 @@ export const InitiativesCards = () => {
           </Link>
         </Item>
       </Grid>
-    </>
+    </Section>
   );
 };
 const Title = styled.h3`
