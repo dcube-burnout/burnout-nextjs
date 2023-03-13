@@ -1,6 +1,7 @@
 import '../../src/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import dynamic from 'next/dynamic';
 
 const darkTheme = createTheme({
   palette: {
@@ -16,7 +17,7 @@ const darkTheme = createTheme({
   },
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
@@ -24,3 +25,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </ThemeProvider>
   );
 }
+
+export default dynamic(() => Promise.resolve(App), { ssr: false });

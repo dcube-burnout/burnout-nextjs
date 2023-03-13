@@ -8,7 +8,7 @@ import Particle from '../components/background-animation/Particle';
 import { memberData, MemberRole, MemberText } from '../data/member-data';
 import { sessionSummaryData } from '../data/session-summary';
 import { ISessionSummaryData } from '../data/types';
-import { Modal } from '@lifesg/react-design-system';
+import Modal from '@mui/material/Modal';
 import { CreateSessionForm } from '../components/sessions/CreateSessionForm';
 import { InitiativesCards } from '../components/govtech-initiatives/initiativesCards';
 
@@ -82,7 +82,7 @@ export default function Home() {
         <MemberCards data={membersData} />
         <hr />
         <Session data={sessionsData} openModalAction={() => setShowModal(true)} />
-        <Modal show={showModal}>
+        <Modal open={showModal}>
           <CreateSessionForm closeModalAction={() => setShowModal(false)} />
         </Modal>
         <hr />

@@ -1,5 +1,4 @@
 import React from 'react';
-import { MediaQuery } from '@lifesg/react-design-system';
 import styled from 'styled-components';
 import SectionHeader from '../SectionHeader';
 import { MdModeEdit } from 'react-icons/md';
@@ -99,7 +98,7 @@ const Card = styled.div`
   transition: 0.3s;
   border: 2px solid transparent;
 
-  ${MediaQuery.MaxWidth.tablet} {
+  @media screen and (max-width: 1199px) {
     flex: 0 0 calc(50%);
     max-width: calc(50% - 5px);
   }
