@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { IMemberData } from '../data/types';
 import HeaderSection from './team-member/HeaderSection';
 import Link from 'next/link';
+import Modal from '@mui/material/Modal';
+import Confirmation from './Confirmation';
 
 interface myProps {
   memberData: IMemberData;
@@ -12,6 +14,16 @@ interface myProps {
 
 const SendMessage = ({ memberData, handleComplete }: myProps) => {
   const [input, setInput] = useState('');
+  const [openModal, setOpenModal] = useState(false);
+
+  const onSubmit = () => {
+    // Check if input is filled in
+    if (!input) {
+      return;
+    }
+    setOpenModal(true);
+  };
+
   return (
     <Container>
       <HeaderSection
@@ -25,8 +37,7 @@ const SendMessage = ({ memberData, handleComplete }: myProps) => {
         Take a few moments to provide feedback to&nbsp;{' '}
         <span style={{ color: '#FF6624', fontWeight: 'bold' }}>{memberData.name}</span>
         &nbsp; on areas such as
-        <br /> communication, teamwork, and job performance — try to be constructive in your
-        <br />
+        <br /> communication, teamwork, and job performance — try to be constructive in your <br />
         comments, focusing on specific behaviors or actions rather than personal opinions!
       </TextBox>
       <InputBox value={input} onChange={(e) => setInput(e.target.value)} />
@@ -41,8 +52,15 @@ const SendMessage = ({ memberData, handleComplete }: myProps) => {
         <Link href={'/'} passHref>
           <BackButton>Back</BackButton>
         </Link>
-        <Button onClick={() => (input ? handleComplete(input) : null)}>Submit</Button>
+        <Button onClick={onSubmit}>Submit</Button>
       </div>
+      <Modal open={openModal} onClose={() => setOpenModal(false)}>
+        <Confirmation
+          memberData={memberData}
+          handleCancel={() => setOpenModal(false)}
+          handleOk={() => handleComplete(input)}
+        />
+      </Modal>
     </Container>
   );
 };
