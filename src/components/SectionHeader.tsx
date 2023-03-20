@@ -5,29 +5,29 @@ import { MdGroups, MdOutlineEventNote, MdStarRate } from 'react-icons/md';
 import Button from '@mui/material/Button';
 
 const SectionHeader = ({ headerType, title, description, buttonLabel, buttonAction }: SectionHeader) => {
-  return (
-    <>
-      <TextWrapper>
-        <h2>
-          {headerType === 'team' ? (
-            <MdGroups />
-          ) : headerType === 'intitatives' ? (
-            <MdStarRate />
-          ) : (
-            <MdOutlineEventNote />
-          )}
-          &nbsp;{title}
-        </h2>
-        <br />
-        {buttonLabel && (
-          <Button variant="contained" onClick={buttonAction}>
-            {buttonLabel}
-          </Button>
-        )}
-      </TextWrapper>
-      <Description>{description}</Description>
-    </>
-  );
+	return (
+		<>
+			<TextWrapper>
+				<h2>
+					{headerType === 'team' ? (
+						<MdGroups />
+					) : headerType === 'intitatives' ? (
+						<MdStarRate />
+					) : (
+						<MdOutlineEventNote />
+					)}
+					&nbsp;{title}
+				</h2>
+				<br />
+				{buttonLabel && (
+					<Button variant="contained" onClick={buttonAction}>
+						{buttonLabel}
+					</Button>
+				)}
+			</TextWrapper>
+			<Description>{description}</Description>
+		</>
+	);
 };
 
 const TextWrapper = styled.div`
