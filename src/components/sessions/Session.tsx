@@ -1,8 +1,9 @@
 import SessionRow from './SessionRow';
 import SectionHeader from '../SectionHeader';
 import type { ISessionSummaryData } from '@/data/types';
-import { TableBody, TableCell, TableContainer, TableHead, Table } from '@mui/material';
+import { TableBody, TableCell, TableContainer, TableHead, Table, styled, TableRow } from '@mui/material';
 import { MdOutlineEventNote } from 'react-icons/md';
+import { tableCellClasses } from '@mui/material/TableCell';
 import Section from '../Section';
 
 function onClick() {
@@ -13,6 +14,16 @@ interface Props {
   data: ISessionSummaryData[];
   openModalAction: () => void;
 }
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
 
 const Session = ({ data, openModalAction }: Props) => {
   return (
@@ -27,10 +38,12 @@ const Session = ({ data, openModalAction }: Props) => {
       <TableContainer>
         <Table>
           <TableHead>
-            <TableCell>Title</TableCell>
-            <TableCell>Date</TableCell>
-            <TableCell>Progress</TableCell>
-            <TableCell>Score</TableCell>
+            <TableRow>
+              <StyledTableCell>Title</StyledTableCell>
+              <StyledTableCell>Date</StyledTableCell>
+              <StyledTableCell>Progress</StyledTableCell>
+              <StyledTableCell>Score</StyledTableCell>
+            </TableRow>
           </TableHead>
           <TableBody>
             {data.map((session) => (

@@ -2,7 +2,9 @@ import React, { ChangeEventHandler } from 'react';
 import { BsCircleFill } from 'react-icons/bs';
 import { useRouter } from 'next/navigation';
 import { TableCell, TableRow } from '@mui/material';
+import { tableCellClasses } from '@mui/material/TableCell';
 import Button from '@mui/material/Button';
+import { styled } from '@mui/material/styles';
 
 interface SessionRowInterface {
   id: string;
@@ -26,27 +28,38 @@ const SessionRow = (props: SessionRowInterface) => {
       return 'red';
     }
   }
+
   const progressColor = getProgressColor(props.score);
   const disableButton = props.done;
 
+  const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    [`&.${tableCellClasses.body}`]: {
+      fontSize: 14,
+    },
+  }));
+
   return (
     <TableRow>
-      <TableCell>{props.title}</TableCell>
-      <TableCell>{props.date}</TableCell>
-      <TableCell>
+      <StyledTableCell>{props.title}</StyledTableCell>
+      <StyledTableCell>{props.date}</StyledTableCell>
+      <StyledTableCell>
         {disableButton ? (
           <Button variant="contained" disabled>
             Done
           </Button>
         ) : (
-          <Button variant="contained" onClick={() => router.push(`/session/${props.id}`)}>
+          <Button variant="contained" onClick={() => router.push(`/session/${props.id}/start`)}>
             Start
           </Button>
         )}
-      </TableCell>
-      <TableCell>
+      </StyledTableCell>
+      <StyledTableCell>
         <BsCircleFill color={progressColor} />
-      </TableCell>
+      </StyledTableCell>
     </TableRow>
   );
 };

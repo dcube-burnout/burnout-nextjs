@@ -5,11 +5,11 @@ import { Box, Button, TextField, Typography } from '@mui/material';
 
 const CloseButton = styled.button`
   align-self: flex-end;
-  padding: 6px 12px;
   background-color: transparent;
   border: none;
-  font-size: 2em;
+  font-size: 1.5rem;
   color: white;
+  cursor: pointer;
 `;
 
 const TeamName = styled.span`
