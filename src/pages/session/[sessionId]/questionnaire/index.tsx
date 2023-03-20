@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import React, { useEffect, useState } from 'react';
 import Navbar from 'src/components/Navbar';
 import { questionnaireData } from 'src/data/session-data';
-import { Section } from './questionnaire-section';
+import { Section } from 'src/components/sessions/questionnaire/questionnaire-section';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { open_Sans } from 'src/global-style';
