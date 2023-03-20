@@ -1,25 +1,7 @@
-import { open_Sans } from '../../global-style';
 import axios from 'axios';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { Button, TextField } from '@mui/material';
-
-const Box = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 25px;
-  border: 2px solid white;
-  align-items: center;
-  color: white;
-  background-color: #112161;
-  opacity: 1;
-  z-index: 1000 !important;
-  width: 90%;
-  height: 442px;
-  font-size: 1.2em;
-  font-family: ${open_Sans.style.fontFamily};
-`;
+import { Box, Button, TextField, Typography } from '@mui/material';
 
 const CloseButton = styled.button`
   align-self: flex-end;
@@ -30,63 +12,9 @@ const CloseButton = styled.button`
   color: white;
 `;
 
-const P = styled.p`
-  text-align: center;
-  padding-bottom: 36px;
-`;
-
 const TeamName = styled.span`
   color: #ff6624;
 `;
-
-const FormSection = styled.div`
-  padding-bottom: 48px;
-`;
-
-const ButtonSection = styled.div`
-  padding-bottom: 72px;
-`;
-
-const ExitButton = styled(Button)({
-  backgroundColor: '#112161',
-  border: '1px solid #57a9ff',
-  marginLeft: '20px',
-});
-
-const BeginButton = styled.button`
-  background-color: #ff6624;
-  width: 150px;
-  height: 50px;
-  color: white;
-  font-size: 1rem;
-  border-radius: 4px;
-  border-style: none;
-  cursor: pointer;
-  z-index: 100; // For particles
-  margin-left: 20px;
-
-  &:hover {
-    background-color: #cd3e00;
-    box-shadow: 1px 1px;
-  }
-`;
-
-// const ExitButton = styled.button`
-//   background-color: #112161;
-//   border: 1px solid #57a9ff;
-//   width: 150px;
-//   height: 50px;
-//   color: white;
-//   font-size: 1rem;
-//   border-radius: 4px;
-//   cursor: pointer;
-//   z-index: 100; // For particles
-
-//   &:hover {
-//     background-color: #57a9ff;
-//     box-shadow: 1px 1px;
-//   }
-// `;
 
 interface Props {
   closeModalAction: () => void;
@@ -108,30 +36,44 @@ export const CreateSessionForm = ({ closeModalAction }: Props) => {
     setTitle(e.target.value);
   };
 
+  const style = {
+    position: 'absolute' as const,
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 600,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+    padding: '8px',
+  };
+
   return (
-    <Box>
+    <Box sx={style}>
       <CloseButton onClick={closeAction}>x</CloseButton>
-      <P>
+      <Typography variant="h5" pb={2}>
         Create a session
-        <br />
-        <br />
+      </Typography>
+      <Typography pb={4}>
         You are creating a session for <TeamName>Team Burnout Hackers.</TeamName>
-      </P>
+      </Typography>
 
-      <FormSection>
+      <Box pb={4}>
         <TextField id="outlined-basic" label="Title" variant="outlined" onChange={inputOnChange} />
-      </FormSection>
+      </Box>
 
-      <ButtonSection>
-        <ExitButton variant="outlined" onClick={closeAction} size="large">
+      <Box pb={4}>
+        <Button variant="outlined" onClick={closeAction} size="large">
           Cancel
-        </ExitButton>
-        <Button variant="contained" onClick={closeAction} size="large">
+        </Button>
+        <Button variant="contained" onClick={submitAction} size="large">
           Create
         </Button>
-        {/* <ExitButton onClick={closeAction}>Cancel</ExitButton> */}
-        <BeginButton onClick={submitAction}>Create</BeginButton>
-      </ButtonSection>
+      </Box>
     </Box>
   );
 };

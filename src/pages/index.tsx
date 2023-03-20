@@ -75,6 +75,8 @@ export default function Home() {
     });
   }, []);
 
+  const handleClose = () => setShowModal(false);
+
   return (
     <>
       <Navbar />
@@ -83,8 +85,8 @@ export default function Home() {
         <MemberCards data={membersData} />
         <hr />
         <Session data={sessionsData} openModalAction={() => setShowModal(true)} />
-        <Modal open={showModal}>
-          <CreateSessionForm closeModalAction={() => setShowModal(false)} />
+        <Modal open={showModal} onClose={handleClose} disableScrollLock={true}>
+          <CreateSessionForm closeModalAction={handleClose} />
         </Modal>
         <hr />
         <InitiativesCards />
