@@ -27,7 +27,7 @@ export default function Home() {
             .filter((m: any) => m.team === 1)
             .map((m: any) => ({
               id: m.id,
-              imgSrc: `../ img / member${m.id}.jpg`,
+              imgSrc: `../img/member${m.id}.jpg`,
               description: (
                 <>
                   <MemberText>{m.name}</MemberText>
