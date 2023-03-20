@@ -1,4 +1,5 @@
 import { ReactElement } from 'react';
+import type { IconType } from 'react-icons';
 
 export interface CardInterface {
   imgSrc: string;
@@ -11,6 +12,7 @@ export interface SectionHeader {
   description?: string;
   buttonLabel?: string;
   buttonAction?: () => void;
+  Icon?: IconType;
 }
 
 export interface HeaderSection {

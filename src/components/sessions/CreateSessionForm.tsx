@@ -1,28 +1,7 @@
-import { open_Sans } from '../../global-style';
-import styled from 'styled-components';
-import { Button, TextField } from '@mui/material';
-import Stack from '@mui/material/Stack';
+import axios from 'axios';
 import { useState } from 'react';
-
-const Box = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 25px;
-  border: 2px solid white;
-  align-items: center;
-  color: white;
-  background-color: #112161;
-  margin: auto;
-  margin-top: 4rem;
-  opacity: 1;
-  z-index: 1000 !important;
-  padding: 3rem 2rem;
-  width: 60%;
-  height: 50%;
-  font-size: 1.2em;
-  font-family: ${open_Sans.style.fontFamily};
-`;
+import styled from 'styled-components';
+import { Box, Button, TextField, Typography } from '@mui/material';
 
 const CloseButton = styled.button`
   align-self: flex-end;
@@ -33,23 +12,9 @@ const CloseButton = styled.button`
   cursor: pointer;
 `;
 
-const P = styled.p`
-  text-align: center;
-  padding-bottom: 36px;
-`;
-
 const TeamName = styled.span`
   color: #ff6624;
 `;
-
-const FormSection = styled.div`
-  padding-bottom: 48px;
-`;
-
-const ExitButton = styled(Button)({
-  backgroundColor: '#112161',
-  border: '1px solid #57a9ff',
-});
 
 interface Props {
   closeModalAction: () => void;
@@ -58,7 +23,10 @@ interface Props {
 export const CreateSessionForm = ({ closeModalAction }: Props) => {
   const [title, setTitle] = useState('');
 
-  console.log(title);
+  const submitAction = async () => {
+    await axios.post((process.env.NEXT_PUBLIC_BACKEND ?? '') + 'api/sessions', { title, userId: 1 });
+    window.location.reload();
+  };
 
   const closeAction = () => {
     closeModalAction();
@@ -68,28 +36,44 @@ export const CreateSessionForm = ({ closeModalAction }: Props) => {
     setTitle(e.target.value);
   };
 
+  const style = {
+    position: 'absolute' as const,
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 600,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+    padding: '8px',
+  };
+
   return (
-    <Box>
+    <Box sx={style}>
       <CloseButton onClick={closeAction}>x</CloseButton>
-      <P>
+      <Typography variant="h5" pb={2}>
         Create a session
-        <br />
-        <br />
+      </Typography>
+      <Typography pb={4}>
         You are creating a session for <TeamName>Team Burnout Hackers.</TeamName>
-      </P>
+      </Typography>
 
-      <FormSection>
+      <Box pb={4}>
         <TextField id="outlined-basic" label="Title" variant="outlined" onChange={inputOnChange} />
-      </FormSection>
+      </Box>
 
-      <Stack spacing={2} direction="row">
-        <ExitButton variant="outlined" onClick={closeAction} size="large">
+      <Box pb={4}>
+        <Button variant="outlined" onClick={closeAction} size="large">
           Cancel
-        </ExitButton>
-        <Button variant="contained" onClick={closeAction} size="large">
+        </Button>
+        <Button variant="contained" onClick={submitAction} size="large">
           Create
         </Button>
-      </Stack>
+      </Box>
     </Box>
   );
 };

@@ -1,50 +1,26 @@
 import React from 'react';
-import styled from 'styled-components';
-import { SectionHeader } from './types';
-import { MdGroups, MdOutlineEventNote, MdStarRate } from 'react-icons/md';
 import Button from '@mui/material/Button';
+import { Typography } from '@mui/material';
+import { SectionHeader } from './types';
+import { Box } from '@mui/system';
 
-const SectionHeader = ({ headerType, title, description, buttonLabel, buttonAction }: SectionHeader) => {
+const SectionHeader = ({ Icon, title, description, buttonLabel, buttonAction }: SectionHeader) => {
   return (
     <>
-      <TextWrapper>
-        <h2>
-          {headerType === 'team' ? (
-            <MdGroups />
-          ) : headerType === 'intitatives' ? (
-            <MdStarRate />
-          ) : (
-            <MdOutlineEventNote />
-          )}
+      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Typography variant="h4">
+          {Icon && <Icon />}
           &nbsp;{title}
-        </h2>
-        <br />
+        </Typography>
         {buttonLabel && (
           <Button variant="contained" onClick={buttonAction}>
             {buttonLabel}
           </Button>
         )}
-      </TextWrapper>
-      <Description>{description}</Description>
+      </Box>
+      <Typography py={2}>{description}</Typography>
     </>
   );
 };
-
-const TextWrapper = styled.div`
-  margin-top: 48px;
-  flex-direction: 'row';
-  flex-wrap: 'wrap';
-  padding: 1rem 2rem;
-  color: white;
-  justify-content: space-between;
-  display: flex;
-`;
-
-const Description = styled.div`
-  flex-direction: 'row';
-  flex-wrap: 'wrap';
-  padding: 0.5rem 2rem;
-  color: white;
-`;
 
 export default SectionHeader;
