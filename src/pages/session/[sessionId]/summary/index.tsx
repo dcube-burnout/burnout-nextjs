@@ -1,9 +1,9 @@
 import dynamic from 'next/dynamic';
 import React, { useEffect, useState } from 'react';
 import type { IButtonData, ISummaryData } from '@/data/types';
-import { InfoSection } from './info-section';
-import { IndivScore } from './indiv-score';
-import { OverallScore } from './overall-score';
+import { InfoSection } from 'src/components/sessions/summary/info-section';
+import { IndivScore } from '../../../../components/sessions/summary/indiv-score';
+import { OverallScore } from 'src/components/sessions/summary/overall-score';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { Textarea } from '@lifesg/react-design-system';
