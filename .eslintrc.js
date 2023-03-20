@@ -5,7 +5,12 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint', 'prettier'],
-  extends: ['plugin:@typescript-eslint/recommended', 'plugin:import/typescript', 'plugin:import/recommended'],
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+    'plugin:import/typescript',
+    'plugin:import/recommended',
+    'plugin:@next/next/recommended',
+  ],
   root: true,
   env: { node: true, jest: true },
   rules: {

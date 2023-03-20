@@ -1,9 +1,8 @@
 import { open_Sans } from '../../global-style';
-import axios from 'axios';
-import { useState } from 'react';
 import styled from 'styled-components';
 import { Button, TextField } from '@mui/material';
 import Stack from '@mui/material/Stack';
+import { useState } from 'react';
 
 const Box = styled.div`
   display: flex;
@@ -47,57 +46,50 @@ const FormSection = styled.div`
   padding-bottom: 48px;
 `;
 
-const ButtonSection = styled.div`
-  padding-bottom: 72px;
-`;
-
 const ExitButton = styled(Button)({
-	backgroundColor: '#112161',
-	border: '1px solid #57a9ff',
+  backgroundColor: '#112161',
+  border: '1px solid #57a9ff',
 });
 
 interface Props {
-	closeModalAction: () => void;
+  closeModalAction: () => void;
 }
 
 export const CreateSessionForm = ({ closeModalAction }: Props) => {
-	const [title, setTitle] = useState('');
+  const [title, setTitle] = useState('');
 
-	const submitAction = async () => {
-		await axios.post('api/sessions', { title, userId: 1 });
-		window.location.reload();
-	};
+  console.log(title);
 
-	const closeAction = () => {
-		closeModalAction();
-	};
+  const closeAction = () => {
+    closeModalAction();
+  };
 
-	const inputOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setTitle(e.target.value);
-	};
+  const inputOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+  };
 
-	return (
-		<Box>
-			<CloseButton onClick={closeAction}>x</CloseButton>
-			<P>
-				Create a session
-				<br />
-				<br />
-				You are creating a session for <TeamName>Team Burnout Hackers.</TeamName>
-			</P>
+  return (
+    <Box>
+      <CloseButton onClick={closeAction}>x</CloseButton>
+      <P>
+        Create a session
+        <br />
+        <br />
+        You are creating a session for <TeamName>Team Burnout Hackers.</TeamName>
+      </P>
 
-			<FormSection>
-				<TextField id="outlined-basic" label="Title" variant="outlined" onChange={inputOnChange} />
-			</FormSection>
+      <FormSection>
+        <TextField id="outlined-basic" label="Title" variant="outlined" onChange={inputOnChange} />
+      </FormSection>
 
-			<Stack spacing={2} direction="row">
-				<ExitButton variant="outlined" onClick={closeAction} size="large">
-					Cancel
-				</ExitButton>
-				<Button variant="contained" onClick={closeAction} size="large">
-					Create
-				</Button>
-			</Stack>
-		</Box>
-	);
+      <Stack spacing={2} direction="row">
+        <ExitButton variant="outlined" onClick={closeAction} size="large">
+          Cancel
+        </ExitButton>
+        <Button variant="contained" onClick={closeAction} size="large">
+          Create
+        </Button>
+      </Stack>
+    </Box>
+  );
 };
