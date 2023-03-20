@@ -24,7 +24,7 @@ export const CreateSessionForm = ({ closeModalAction }: Props) => {
   const [title, setTitle] = useState('');
 
   const submitAction = async () => {
-    await axios.post('api/sessions', { title, userId: 1 });
+    await axios.post((process.env.NEXT_PUBLIC_BACKEND ?? '') + 'api/sessions', { title, userId: 1 });
     window.location.reload();
   };
 
